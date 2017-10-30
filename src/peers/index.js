@@ -7,9 +7,7 @@ module.exports = (arg) => {
 
   return {
     add: require('./add')(send),
-    /*
     rm: require('./rm')(send),
     ls: require('./ls')(send)
-    */
   }
 }

@@ -7,14 +7,11 @@ module.exports = (send) => {
       opts = undefined
     }
 
-    var peerAddBody = {
-      "peer_multiaddress": arg
-    }
+    var rmPath = `peers/${arg}`
 
     send({
-      path: 'peers',
-      method: 'POST',
-      data: JSON.stringify(peerAddBody),
+      path: rmPath,
+      method: 'DELETE',
       args: opts
     }, callback)
   })

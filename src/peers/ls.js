@@ -1,20 +1,14 @@
 'use strict'
 
 module.exports = (send) => {
-  return util.promisify((arg, opts, callback) => {
+  return util.promisify((opts, callback) => {
     if (typeof opts == 'function') {
       callback = opts
       opts = undefined
     }
 
-    var peerAddBody = {
-      "peer_multiaddress": arg
-    }
-
     send({
       path: 'peers',
-      method: 'POST',
-      data: JSON.stringify(peerAddBody),
       args: opts
     }, callback)
   })
