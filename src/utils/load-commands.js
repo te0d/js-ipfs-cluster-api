@@ -2,27 +2,13 @@
 
 function getCommands() {
   const cmds = {
-    /*
-    id: (send) => {
-      return util.promisify((opts, callback) => {
-        send({
-          path: 'id',
-          args: opts
-        }, callback)
-      })
-    },
-    */
-    /*
-    peers: {
-      ls: {},
-      add: {},
-      rm: {}
-    }
-    */
     id: require('../id'),
-    version: require('../version'),
     peers: require('../peers'),
-    pin: require('../pin')
+    pin: require('../pin'),
+    status: require('../status'),
+    sync: require('../sync'),
+    recover: require('../recover'),
+    version: require('../version')
   }
 
   return cmds
@@ -34,16 +20,6 @@ function loadCommands(send) {
 
   Object.keys(files).forEach((file) => {
     cmds[file] = files[file](send)
-    /*
-    cmds[file] = util.promisify((opts, callback) => {
-      if (typeof (opts) === 'function') {
-        callback = opts
-        opts = {}
-      }
-      send({
-        path: 'id', args: opts }, callback)
-    });
-    */
   })
 
   return cmds
