@@ -21,7 +21,8 @@ function getCommands() {
     */
     id: require('../id'),
     version: require('../version'),
-    peers: require('../peers')
+    peers: require('../peers'),
+    pin: require('../pin')
   }
 
   return cmds
