@@ -1,0 +1,13 @@
+{
+  "name": "ipfs-cluster-api",
+  "version": "0.0.1",
+  "description": "A client library for the IPFS Cluster HTTP API.",
+  "main": "src/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "concat-stream": "^1.6.0",
+    "once": "^1.4.0",
+    "pump": "^1.0.2",
+    "qs": "^6.5.1"
+  }
+}
