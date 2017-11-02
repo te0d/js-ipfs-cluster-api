@@ -1,5 +1,7 @@
 'use strict'
 
+const util = require('util')
+
 module.exports = (send) => {
   return util.promisify((arg, opts, callback) => {
     if (typeof opts == 'function') {

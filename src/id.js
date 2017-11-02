@@ -1,5 +1,6 @@
 'use strict'
 
+const util = require('util')
 const moduleConfig = require('./utils/module-config')
 
 module.exports = (arg) => {
