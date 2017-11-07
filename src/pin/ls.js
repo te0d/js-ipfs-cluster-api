@@ -3,17 +3,19 @@
 const util = require('util')
 
 module.exports = (send) => {
-  return util.promisify((opts, callback) => {
-    if (typeof opts == 'function') {
-      callback = opts
-      opts = undefined
+  return util.promisify((cid, callback) => {
+    if (typeof cid == 'function') {
+      callback = cid
+      cid = undefined
     }
 
-    // TODO:  add ability to specify specific CID
+    var lsPath = 'allocations';
+    if (cid) {
+      lsPath += '/' + cid
+    }
 
     send({
-      path: 'allocations',
-      args: opts
+      path: lsPath
     }, callback)
   })
 }

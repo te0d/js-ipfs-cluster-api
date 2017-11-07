@@ -6,18 +6,20 @@ const moduleConfig = require('./utils/module-config')
 module.exports = (arg) => {
   const send = moduleConfig(arg)
 
-  return util.promisify((opts, callback) => {
-    if (typeof opts == 'function') {
-      callback = opts
-      opts = undefined
+  return util.promisify((cid, callback) => {
+    if (typeof cid == 'function') {
+      callback = cid
+      cid = undefined
     }
 
-    // TODO:  allow specific CID
+    var syncPath = 'pins/sync'
+    if (cid) {
+      syncPath = `pins/${cid}/sync`
+    }
 
     send({
       method: 'POST',
-      path: 'pins/sync',
-      args: opts
+      path: syncPath
     }, callback)
   })
 }

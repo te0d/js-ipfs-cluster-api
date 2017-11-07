@@ -9,14 +9,12 @@ module.exports = (send) => {
       opts = undefined
     }
 
-    // TODO:  respect replication_factor option
-
     var addPath = `pins/${arg}`
 
     send({
       method: 'POST',
       path: addPath,
-      args: opts
+      qs: opts
     }, callback)
   })
 }

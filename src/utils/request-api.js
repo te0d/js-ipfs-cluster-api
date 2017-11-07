@@ -32,8 +32,6 @@ function onRes (buffer, callback) {
       parseError(res, callback)
     }
 
-    // TODO:  handle streams and chunked objects
-
     if (isJson) {
       return streamToJsonValue(res, callback)
     }

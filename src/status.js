@@ -6,14 +6,19 @@ const moduleConfig = require('./utils/module-config')
 module.exports = (arg) => {
   const send = moduleConfig(arg)
 
-  return util.promisify((opts, callback) => {
-    if (typeof opts == 'function') {
-      callback = opts
-      opts = undefined
+  return util.promisify((cid, callback) => {
+    if (typeof cid == 'function') {
+      callback = cid
+      cid = undefined
     }
+
+    var statusPath = 'pins';
+    if (cid) {
+      statusPath += '/' + cid;
+    }
+
     send({
-      path: 'pins',
-      args: opts
+      path: statusPath
     }, callback)
   })
 }
