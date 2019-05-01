@@ -9,5 +9,13 @@
     "once": "^1.4.0",
     "pump": "^1.0.2",
     "qs": "^6.5.1"
-  }
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  },
+  "contributors": [
+    "Tom O'Donnell <todonnel91@gmail.com>",
+    "Vaibhav Saini <vasa@towardsblockchain.com>"
+  ]
 }
